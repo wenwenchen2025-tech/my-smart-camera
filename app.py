@@ -3,15 +3,17 @@ from PIL import Image
 import google.generativeai as genai
 
 # --- 配置 (建议在 Streamlit Secrets 中配置) ---
-try:
+# 修改代码第 6-11 行左右
+if "GEMINI_API_KEY" in st.secrets:
     API_KEY = st.secrets["GEMINI_API_KEY"]
-except:
-    API_KEY = "AIzaSyCqOqblOLQcO3XdFP0JRz_HlBtl3gGfhvo"
+else:
+    # 确保这里的 Key 是你从 Google AI Studio 复制的最新 Key
+    API_KEY = "AIzaSyCqOqb1OLQcO3XdFP0JRz_HlBt13gGfhvo" 
 
 genai.configure(api_key=API_KEY)
 # 确保使用最通用的模型名称
 try:
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('models/gemini-1.5-flash')
 except Exception as e:
     st.error(f"模型加载失败，请检查 API Key 权限或模型名称: {e}")
 
