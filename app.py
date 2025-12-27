@@ -6,7 +6,7 @@ import google.generativeai as genai
 try:
     API_KEY = st.secrets["GEMINI_API_KEY"]
 except:
-    API_KEY = "你的_GEMINI_API_KEY"
+    API_KEY = "AIzaSyCqOqblOLQcO3XdFP0JRz_HlBtl3gGfhvo"
 
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
