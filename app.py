@@ -9,7 +9,11 @@ except:
     API_KEY = "AIzaSyCqOqblOLQcO3XdFP0JRz_HlBtl3gGfhvo"
 
 genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash')
+# 确保使用最通用的模型名称
+try:
+    model = genai.GenerativeModel('gemini-1.5-flash')
+except Exception as e:
+    st.error(f"模型加载失败，请检查 API Key 权限或模型名称: {e}")
 
 st.set_page_config(page_title="AI 随身翻译官", page_icon="🎤")
 
