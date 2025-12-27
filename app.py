@@ -13,7 +13,7 @@ else:
 genai.configure(api_key=API_KEY)
 # 确保使用最通用的模型名称
 try:
-    model = genai.GenerativeModel('models/gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-1.5-flash-latest')
 except Exception as e:
     st.error(f"模型加载失败，请检查 API Key 权限或模型名称: {e}")
 
